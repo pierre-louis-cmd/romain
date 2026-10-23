@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Préparer ma randonnée — Sac'pré</title>
+  <meta name="description" content="Choisissez votre destination, présentez votre groupe et recevez une proposition d'itinéraire et de matériel adaptée à votre niveau.">
+  <meta name="theme-color" content="#0b4123">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Préparer ma randonnée — Sac'pré">
+  <meta property="og:description" content="Choisissez votre destination, présentez votre groupe et recevez une proposition d'itinéraire et de matériel adaptée à votre niveau.">
+  <meta property="og:image" content="assets/img/logo-full.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..900,0..100&family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/reserver.css">
+</head>
+<body>
+  <script src="assets/js/icons.js"></script>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Sac'pré, retour à l'accueil">
+        <img class="brand__emblem" src="assets/img/logo-emblem-160.webp" width="160" height="135" alt="">
+        <img class="brand__wordmark" src="assets/img/logo-wordmark.webp" width="520" height="139" alt="Sac'pré">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bars"></span><span class="sr-only">Ouvrir le menu</span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul class="main-nav__list">
+          <li><a class="main-nav__link" href="index.html">Accueil</a></li>
+          <li><a class="main-nav__link" href="destinations.html">Destinations</a></li>
+          <li><a class="main-nav__link" href="location.html">Location de matériel</a></li>
+          <li><a class="main-nav__link" href="itineraires.html">Itinéraires sur mesure</a></li>
+          <li><a class="main-nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="reserver.html" aria-current="page">Préparer ma rando <svg class="i arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero page-hero--compact">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-current="page">Préparer ma randonnée</li>
+        </ol>
+        <p class="eyebrow">Réservation en ligne</p>
+        <h1>Préparez votre randonnée</h1>
+        <p class="lead">Cinq étapes, quelques minutes&nbsp;: on vous propose l'itinéraire et le matériel adaptés à votre groupe. Aucun paiement en ligne, nous confirmons tout avec vous.</p>
+      </div>
+      <svg class="ridge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 90V62l80-14 70 10 90-28 70 16 70-8 90 26 90-38 80 18 80-26 80 22 70-6 90 26 90-32 80 18 80-10 90 20 80-16 60 10v40z"/></svg>
+    </section>
+
+    <section class="section wizard-section" aria-label="Formulaire de réservation">
+      <div class="container">
+        <nav class="wizard-progress" aria-label="Étapes de la réservation">
+          <ol id="wizard-progress"></ol>
+        </nav>
+
+        <div class="wizard-layout" id="wizard-layout">
+          <form class="wizard" id="wizard" novalidate>
+            <!-- Étape 1 : destination -->
+            <section class="wizard-step" data-step="1" aria-labelledby="step-1-title">
+              <header class="wizard-step__head">
+                <p class="eyebrow">Étape 1 sur 5</p>
+                <h2 id="step-1-title" tabindex="-1">Où souhaitez-vous randonner&nbsp;?</h2>
+                <p class="muted">Sélectionnez votre zone de randonnée. Le Vercors est ouvert à la réservation, les autres massifs arrivent très bientôt.</p>
+              </header>
+              <div class="dest-grid dest-grid--wizard" id="dest-choices"></div>
+            </section>
+
+            <!-- Étape 2 : groupe -->
+            <section class="wizard-step" data-step="2" aria-labelledby="step-2-title" hidden>
+              <header class="wizard-step__head">
+                <p class="eyebrow">Étape 2 sur 5</p>
+                <h2 id="step-2-title" tabindex="-1">Parlez-nous de votre groupe</h2>
+                <p class="muted">Ces informations nous permettent de vous proposer un itinéraire adapté au niveau de chacun.</p>
+              </header>
+
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-calendar"/></svg>Quand partez-vous&nbsp;?</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="f-date">Date de départ</label>
+                    <input class="input" type="date" id="f-date" data-bind="date" required>
+                  </div>
+                  <div class="field">
+                    <label for="f-days">Durée de la randonnée</label>
+                    <select class="select" id="f-days" data-bind="days" data-type="number">
+                      <option value="1">1 journée</option>
+                      <option value="2">2 jours</option>
+                      <option value="3">3 jours</option>
+                      <option value="4">4 jours</option>
+                      <option value="5">5 jours</option>
+                      <option value="6">6 jours</option>
+                      <option value="7">7 jours</option>
+                    </select>
+                  </div>
+                  <fieldset class="fieldset full" id="lodging-field" hidden>
+                    <legend>Où dormirez-vous&nbsp;?</legend>
+                    <div class="seg seg--wide" role="radiogroup">
+                      <label class="seg__opt"><input type="radio" name="lodging" value="gite" data-bind="lodging"><span><strong>En gîte ou refuge</strong><small>Sac plus léger, nuit au chaud</small></span></label>
+                      <label class="seg__opt"><input type="radio" name="lodging" value="bivouac" data-bind="lodging"><span><strong>En bivouac</strong><small>Tente et nuit à la belle étoile</small></span></label>
+                      <label class="seg__opt"><input type="radio" name="lodging" value="unknown" data-bind="lodging"><span><strong>Je ne sais pas encore</strong><small>On vous conseille</small></span></label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg>Combien êtes-vous&nbsp;?</h3>
+                <div class="counters">
+                  <div class="counter">
+                    <div>
+                      <strong id="lbl-adults">Adultes</strong>
+                      <span>18 ans et plus</span>
+                    </div>
+                    <div class="stepper" data-counter="adult" role="group" aria-labelledby="lbl-adults">
+                      <button type="button" data-delta="-1" aria-label="Retirer un adulte"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button>
+                      <output aria-live="polite">1</output>
+                      <button type="button" data-delta="1" aria-label="Ajouter un adulte"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                    </div>
+                  </div>
+                  <div class="counter">
+                    <div>
+                      <strong id="lbl-children">Enfants &amp; ados</strong>
+                      <span>Moins de 18 ans</span>
+                    </div>
+                    <div class="stepper" data-counter="child" role="group" aria-labelledby="lbl-children">
+                      <button type="button" data-delta="-1" aria-label="Retirer un enfant"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button>
+                      <output aria-live="polite">0</output>
+                      <button type="button" data-delta="1" aria-label="Ajouter un enfant"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button>
+                    </div>
+                  </div>
+                </div>
+                <p class="small muted" id="group-limit" style="margin:12px 0 0">Jusqu'à 12 participants par réservation. Au-delà, <a href="contact.html?sujet=groupe">contactez-nous</a>.</p>
+              </div>
+
+              <div class="panel">
+                <div class="panel__title-row">
+                  <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-mountain"/></svg>Le niveau de chaque participant</h3>
+                  <details class="levels-help">
+                    <summary>Comment évaluer son niveau&nbsp;?</summary>
+                    <ul id="levels-help-list"></ul>
+                  </details>
+                </div>
+                <div class="participants" id="participants"></div>
+              </div>
+
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Vos envies &amp; contraintes <span class="optional">facultatif</span></h3>
+                <p class="label">Qu'aimeriez-vous voir&nbsp;?</p>
+                <div class="chips" id="interests"></div>
+                <p class="label" style="margin-top:22px">À prendre en compte</p>
+                <div class="checks">
+                  <label class="checkbox"><input type="checkbox" data-bind="constraints.vertigo"> Une personne du groupe est sujette au vertige</label>
+                  <label class="checkbox"><input type="checkbox" data-bind="constraints.dog"> Nous venons avec un chien</label>
+                  <label class="checkbox"><input type="checkbox" data-bind="constraints.transit"> Nous venons sans voiture (accès en transports en commun)</label>
+                </div>
+                <div class="field" style="margin-top:22px">
+                  <label for="f-notes">Autre chose à nous dire&nbsp;?</label>
+                  <textarea class="textarea" id="f-notes" data-bind="notes" placeholder="Santé, allergies, objectif particulier, anniversaire au sommet…"></textarea>
+                </div>
+              </div>
+            </section>
+
+            <!-- Étape 3 : itinéraire -->
+            <section class="wizard-step" data-step="3" aria-labelledby="step-3-title" hidden>
+              <header class="wizard-step__head">
+                <p class="eyebrow">Étape 3 sur 5</p>
+                <h2 id="step-3-title" tabindex="-1">Votre itinéraire</h2>
+                <p class="muted">D'après les informations de votre groupe, voici notre recommandation.</p>
+              </header>
+              <div id="group-level"></div>
+
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-compass"/></svg>Comment voulez-vous préparer votre randonnée&nbsp;?</h3>
+                <div class="option-grid" id="offers" role="radiogroup" aria-label="Formule de préparation"></div>
+              </div>
+
+              <div class="panel">
+                <div class="panel__title-row">
+                  <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Itinéraires adaptés à votre groupe</h3>
+                  <span class="optional" id="route-optional"></span>
+                </div>
+                <div id="routes"></div>
+              </div>
+            </section>
+
+            <!-- Étape 4 : matériel -->
+            <section class="wizard-step" data-step="4" aria-labelledby="step-4-title" hidden>
+              <header class="wizard-step__head">
+                <p class="eyebrow">Étape 4 sur 5</p>
+                <h2 id="step-4-title" tabindex="-1">Votre matériel</h2>
+                <p class="muted">On a présélectionné l'essentiel pour votre sortie. Ajustez selon ce que vous possédez déjà.</p>
+              </header>
+              <div id="pack-intro"></div>
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-backpack"/></svg>Équipement de chaque participant</h3>
+                <div class="gear-people" id="gear-people"></div>
+              </div>
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-tent"/></svg>Matériel pour le groupe</h3>
+                <div class="gear-group" id="gear-group"></div>
+              </div>
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-truck"/></svg>Retrait du matériel</h3>
+                <div class="option-grid option-grid--3" id="logistics" role="radiogroup" aria-label="Retrait du matériel"></div>
+                <p class="note note--green" style="margin:18px 0 0"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span id="deposit-note"></span></p>
+              </div>
+            </section>
+
+            <!-- Étape 5 : récapitulatif & coordonnées -->
+            <section class="wizard-step" data-step="5" aria-labelledby="step-5-title" hidden>
+              <header class="wizard-step__head">
+                <p class="eyebrow">Étape 5 sur 5</p>
+                <h2 id="step-5-title" tabindex="-1">Récapitulatif &amp; coordonnées</h2>
+                <p class="muted">Vérifiez votre demande et laissez-nous vos coordonnées&nbsp;: nous vous recontactons pour confirmer la disponibilité. Aucun paiement à ce stade.</p>
+              </header>
+              <div id="recap"></div>
+              <div class="panel">
+                <h3 class="panel__title"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>Vos coordonnées</h3>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="c-first">Prénom</label>
+                    <input class="input" id="c-first" data-bind="contact.firstName" autocomplete="given-name" required>
+                  </div>
+                  <div class="field">
+                    <label for="c-last">Nom</label>
+                    <input class="input" id="c-last" data-bind="contact.lastName" autocomplete="family-name" required>
+                  </div>
+                  <div class="field">
+                    <label for="c-email">E-mail</label>
+                    <input class="input" type="email" id="c-email" data-bind="contact.email" autocomplete="email" required>
+                  </div>
+                  <div class="field">
+                    <label for="c-phone">Téléphone</label>
+                    <input class="input" type="tel" id="c-phone" data-bind="contact.phone" autocomplete="tel" required pattern="[\d\s\+\.\(\)\-]{8,}">
+                  </div>
+                  <div class="field full">
+                    <label for="c-message">Un message pour l'équipe <span class="optional">facultatif</span></label>
+                    <textarea class="textarea" id="c-message" data-bind="contact.message" placeholder="Une question, une précision…"></textarea>
+                  </div>
+                  <div class="full">
+                    <label class="checkbox"><input type="checkbox" data-bind="contact.consent" id="c-consent" required> J'accepte que Sac'pré utilise ces informations pour traiter ma demande, conformément à la <a href="mentions-legales.html#confidentialite" target="_blank" rel="noopener">politique de confidentialité</a>.</label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="form-alert" id="wizard-error" role="alert" hidden></div>
+
+            <div class="wizard-nav">
+              <button class="btn btn--ghost" type="button" id="btn-prev"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg>Retour</button>
+              <button class="btn btn--primary" type="submit" id="btn-next">Continuer <svg class="i arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+            </div>
+          </form>
+
+          <aside class="summary" id="summary" aria-label="Résumé de votre randonnée">
+            <div class="summary__card">
+              <button class="summary-toggle" type="button" aria-expanded="false" aria-controls="summary-body">
+                <span>Votre randonnée</span>
+                <strong id="summary-total-mobile">0&nbsp;€</strong>
+                <svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+              </button>
+              <div class="summary__body" id="summary-body">
+                <h3 class="summary__title">Votre randonnée</h3>
+                <div id="summary-content"></div>
+              </div>
+            </div>
+            <p class="summary__help small">Une question&nbsp;? <a href="contact.html">Écrivez-nous</a>, on vous répond rapidement.</p>
+          </aside>
+        </div>
+
+        <div class="wizard-done" id="wizard-done" tabindex="-1" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/img/logo-emblem-160.webp" width="160" height="135" alt="" loading="lazy">
+            <img src="assets/img/logo-wordmark-cream.webp" width="520" height="139" alt="Sac'pré" loading="lazy">
+          </div>
+          <p>Sac tout prêt pour la randonnée&nbsp;: location de matériel prêt à l'emploi et itinéraires adaptés à votre niveau, au cœur du Vercors.</p>
+        </div>
+        <div>
+          <h4>Nos services</h4>
+          <ul>
+            <li><a href="location.html">Location de matériel</a></li>
+            <li><a href="itineraires.html">Itinéraires sur mesure</a></li>
+            <li><a href="itineraires.html#guide">Randonnée accompagnée</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sac'pré</h4>
+          <ul>
+            <li><a href="reserver.html">Préparer ma rando</a></li>
+            <li><a href="index.html#faq">Questions fréquentes</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Nous joindre</h4>
+          <ul class="footer-contact">
+            <li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:bonjour@sacpre.fr">bonjour@sacpre.fr</a></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>Vercors, Isère (38)</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span>Réponse sous 24&nbsp;h</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="margin:0">© <span data-year>2026</span> Sac'pré — Sac tout prêt pour la randonnée</p>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#cgl">Conditions de location</a></li>
+          <li><a href="mentions-legales.html#confidentialite">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/art.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/reserver.js"></script>
+</body>
+</html>

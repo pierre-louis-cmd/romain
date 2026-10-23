@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Sac'pré</title>
+  <meta name="description" content="Une question sur la location de matériel ou la préparation de votre itinéraire ? Écrivez à l'équipe Sac'pré.">
+  <meta name="theme-color" content="#0b4123">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Sac'pré">
+  <meta property="og:description" content="Une question sur la location de matériel ou la préparation de votre itinéraire ? Écrivez à l'équipe Sac'pré.">
+  <meta property="og:image" content="assets/img/logo-full.jpg">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..900,0..100&family=Montserrat:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <script src="assets/js/icons.js"></script>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Sac'pré, retour à l'accueil">
+        <img class="brand__emblem" src="assets/img/logo-emblem-160.webp" width="160" height="135" alt="">
+        <img class="brand__wordmark" src="assets/img/logo-wordmark.webp" width="520" height="139" alt="Sac'pré">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bars"></span><span class="sr-only">Ouvrir le menu</span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+        <ul class="main-nav__list">
+          <li><a class="main-nav__link" href="index.html">Accueil</a></li>
+          <li><a class="main-nav__link" href="destinations.html">Destinations</a></li>
+          <li><a class="main-nav__link" href="location.html">Location de matériel</a></li>
+          <li><a class="main-nav__link" href="itineraires.html">Itinéraires sur mesure</a></li>
+          <li><a class="main-nav__link" href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="reserver.html">Préparer ma rando <svg class="i arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="page-hero">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Accueil</a></li>
+          <li aria-current="page">Contact</li>
+        </ol>
+        <p class="eyebrow">Contact</p>
+        <h1>Parlons de votre prochaine randonnée</h1>
+        <p class="lead">Une question sur le matériel, un groupe de plus de 12 personnes, un projet d'itinérance&nbsp;? Écrivez-nous, on vous répond rapidement.</p>
+      </div>
+      <svg class="ridge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 90V62l80-14 70 10 90-28 70 16 70-8 90 26 90-38 80 18 80-26 80 22 70-6 90 26 90-32 80 18 80-10 90 20 80-16 60 10v40z"/></svg>
+    </section>
+
+    <section class="section" style="padding-top:clamp(32px,5vw,56px)">
+      <div class="container contact-layout">
+        <div class="card">
+          <form id="contact-form" novalidate>
+            <h2 style="font-size:1.6rem">Envoyez-nous un message</h2>
+            <p class="muted" style="margin-bottom:26px">Tous les champs sont obligatoires, sauf mention contraire.</p>
+            <div class="form-grid">
+              <div class="field">
+                <label for="ct-first">Prénom</label>
+                <input class="input" id="ct-first" name="prenom" autocomplete="given-name" required>
+              </div>
+              <div class="field">
+                <label for="ct-last">Nom</label>
+                <input class="input" id="ct-last" name="nom" autocomplete="family-name" required>
+              </div>
+              <div class="field">
+                <label for="ct-email">E-mail</label>
+                <input class="input" type="email" id="ct-email" name="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="ct-phone">Téléphone <span class="muted small">(facultatif)</span></label>
+                <input class="input" type="tel" id="ct-phone" name="telephone" autocomplete="tel">
+              </div>
+              <div class="field full">
+                <label for="ct-subject">Sujet</label>
+                <select class="select" id="ct-subject" name="sujet" required>
+                  <option value="question">Question générale</option>
+                  <option value="location">Location de matériel</option>
+                  <option value="itineraire">Itinéraire sur mesure</option>
+                  <option value="guide">Randonnée accompagnée</option>
+                  <option value="groupe">Groupe de plus de 12 personnes</option>
+                  <option value="alerte">Être prévenu d'une nouvelle destination</option>
+                  <option value="partenariat">Partenariat, presse</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="ct-message">Message</label>
+                <textarea class="textarea" id="ct-message" name="message" rows="6" required></textarea>
+              </div>
+              <div class="full">
+                <label class="checkbox"><input type="checkbox" name="consentement" required> J'accepte que Sac'pré utilise ces informations pour répondre à ma demande, conformément à la <a href="mentions-legales.html#confidentialite">politique de confidentialité</a>.</label>
+              </div>
+              <div class="full">
+                <p class="note" id="contact-error" role="alert" hidden><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><span>L'envoi a échoué. Réessayez ou écrivez-nous directement à <a href="mailto:bonjour@sacpre.fr">bonjour@sacpre.fr</a>.</span></p>
+                <button class="btn btn--primary" type="submit">Envoyer le message <svg class="i arrow" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+              </div>
+            </div>
+          </form>
+          <div class="form-success" id="contact-success" tabindex="-1" hidden>
+            <span class="icon-badge icon-badge--orange"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <h2 style="font-size:1.8rem">Message envoyé&nbsp;!</h2>
+            <p class="muted">Merci, l'équipe Sac'pré revient vers vous très vite.</p>
+            <a class="btn btn--ghost" href="index.html">Retour à l'accueil</a>
+          </div>
+        </div>
+
+        <aside class="contact-aside">
+          <div class="card">
+            <ul class="info-list">
+              <li><span class="icon-badge"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg></span><div><strong>Par e-mail</strong><span><a href="mailto:bonjour@sacpre.fr">bonjour@sacpre.fr</a></span></div></li>
+              <li><span class="icon-badge"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg></span><div><strong>Notre agence</strong><span>Au cœur du Vercors, Isère (38)</span></div></li>
+              <li><span class="icon-badge"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg></span><div><strong>Délai de réponse</strong><span>Sous 24&nbsp;h, 7&nbsp;jours sur 7 en saison</span></div></li>
+            </ul>
+          </div>
+          <div class="card pricing-card--featured" style="border-radius:var(--radius)">
+            <span class="icon-badge icon-badge--orange"><svg class="i" aria-hidden="true"><use href="#i-backpack"/></svg></span>
+            <h3 style="color:var(--cream-100)">Vous savez déjà ce qu'il vous faut&nbsp;?</h3>
+            <p style="color:rgba(247,245,230,.8)">Décrivez votre groupe et recevez directement une proposition d'itinéraire et de matériel.</p>
+            <a class="btn btn--primary btn--block" href="reserver.html">Préparer ma randonnée</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/img/logo-emblem-160.webp" width="160" height="135" alt="" loading="lazy">
+            <img src="assets/img/logo-wordmark-cream.webp" width="520" height="139" alt="Sac'pré" loading="lazy">
+          </div>
+          <p>Sac tout prêt pour la randonnée&nbsp;: location de matériel prêt à l'emploi et itinéraires adaptés à votre niveau, au cœur du Vercors.</p>
+        </div>
+        <div>
+          <h4>Nos services</h4>
+          <ul>
+            <li><a href="location.html">Location de matériel</a></li>
+            <li><a href="itineraires.html">Itinéraires sur mesure</a></li>
+            <li><a href="itineraires.html#guide">Randonnée accompagnée</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sac'pré</h4>
+          <ul>
+            <li><a href="reserver.html">Préparer ma rando</a></li>
+            <li><a href="index.html#faq">Questions fréquentes</a></li>
+            <li><a href="contact.html">Nous contacter</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Nous joindre</h4>
+          <ul class="footer-contact">
+            <li><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:bonjour@sacpre.fr">bonjour@sacpre.fr</a></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span>Vercors, Isère (38)</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span>Réponse sous 24&nbsp;h</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p style="margin:0">© <span data-year>2026</span> Sac'pré — Sac tout prêt pour la randonnée</p>
+        <ul>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+          <li><a href="mentions-legales.html#cgl">Conditions de location</a></li>
+          <li><a href="mentions-legales.html#confidentialite">Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/art.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
